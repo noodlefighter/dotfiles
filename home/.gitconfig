@@ -1,0 +1,9 @@
+[core]
+	autocrlf = input
+	quotepath = false
+[icdiff]
+	options = --highlight --line-numbers
+[color]
+	ui = auto
+[http]
+	postBuffer = 524288000

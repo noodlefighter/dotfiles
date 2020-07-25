@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Terminal=false
+Exec=sh -c "(sleep 5 && nohup /usr/bin/ibus-daemon -d -x >/dev/null 2>&1) &"
+Name=ibus-deamon
+Comment=ibus deamon

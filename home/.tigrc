@@ -1,0 +1,17 @@
+# Save the current commit as a patch file when the user selects a commit
+# in the main view and presses 'S'.
+bind main S !git format-patch -1 %(commit)
+
+# Create and checkout a new branch; specify custom prompt
+bind main B ?git checkout -b "%(prompt Enter new branch name: )"
+
+
+# revert selected commit
+bind main R ?git revert %(commit)
+
+# reset to commit
+bind main ! ?git reset %(commit)
+
+# checkout selected commit
+bind main c ?git checkout --detach %(commit) -b branch_%(commit)
+
