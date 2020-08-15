@@ -179,6 +179,9 @@ exec compton
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec $terminal
 
+# run nemo
+bindsym $mod+Shift+Return exec nemo
+
 # run launcher
 bindsym $alt+q exec ~/.config/i3/show-launcher.sh
 
