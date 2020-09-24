@@ -142,6 +142,21 @@ ex ()
   fi
 }
 
+function countdown(){
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+function stopwatch(){
+  date1=`date +%s`;
+   while true; do
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+   done
+}
+
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
@@ -244,6 +259,31 @@ ty() {
 	nh typora $*
 }
 
+# tx/rx with ZMODEM
+# example 1) sendz /dev/ttyUSB0 a.txt b.txt c.txt
+# example 2) sendz /dev/ttyUSB0 *.ko
+# example 3) zrecv /dev/ttyUSB0
+__zmodem_szrz() {
+	DEV=$2
+	if [ $1 == 'zsend' ]; then
+		CMD=sz
+	elif [ $1 == 'zrecv' ]; then
+		CMD=rz
+	else
+		echo "Wrong command."
+		return 1
+	fi
+	stty -F $DEV 115200
+	shift 2
+	$CMD $* > $DEV < $DEV
+}
+zsend() {
+	__zmodem_szrz zsend $*
+}
+zrecv() {
+	__zmodem_szrz zrecv $* 
+}
+
 # git editor
 export GIT_EDITOR=nano
 
@@ -259,6 +299,7 @@ git-user-noodlefighter() {
 }
 
 # rt-thread config
+export RTT_CC=gcc
 export RTT_GCC_PATH=/usr/bin
 
 export TERM=xterm
@@ -267,3 +308,5 @@ export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 
 export PATH=$PATH:$HOME/.yarn/bin
+export PATH=$PATH:$HOME/.cargo/bin
+
