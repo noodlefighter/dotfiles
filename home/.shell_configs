@@ -112,6 +112,7 @@ export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
 # update system time from NTP server
 update-sys-time() {
 	sudo ntpdate -u ntp.api.bz
+	sudo hwclock -w
 }
 
 # open vscode for current dir
