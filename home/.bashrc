@@ -110,6 +110,9 @@ shopt -s expand_aliases
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
+# autojump
+source /usr/share/autojump/autojump.bash
+
 source ~/.shell_configs
 
 
