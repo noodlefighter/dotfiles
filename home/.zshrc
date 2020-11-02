@@ -110,5 +110,8 @@ source $ZSH/oh-my-zsh.sh
 # let auto complete behave like bash
 setopt noautomenu
 
+# load gitflow-zshcompletion
+source /usr/share/zsh/site-functions/git-flow-completion.zsh
+
 source ~/.shell_configs
 

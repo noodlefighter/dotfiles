@@ -57,11 +57,15 @@ alias pc="proxychains"
 # picocom quick startup
 com()
 {
-	DEV="/dev/ttyUSB0"
-	if [ $1 ];then
-		DEV=$1
-	fi
-	sudo picocom $DEV -b 115200
+        DEV="/dev/ttyUSB0"
+        BAUDRATE=115200
+        if [ $1 ];then
+                DEV=$1
+        fi
+        if [ $2 ];then
+                BAUDRATE=$2
+        fi
+        sudo picocom $DEV -b $BAUDRATE
 }
 
 # ssh
@@ -135,7 +139,7 @@ ty() {
 }
 
 # git editor
-export GIT_EDITOR=nano
+export GIT_EDITOR=vim
 
 # git user info
 git-user-ebi() {
@@ -146,6 +150,16 @@ git-user-ebi() {
 git-user-noodlefighter() {
         git config user.email "noodlefighter@gmail.com"
         git config user.name  "noodlefighter"
+}
+
+# add ignore zsh-git status to git repo
+git-disable-zsh() {
+	git config oh-my-zsh.hide-status 1
+	git config oh-my-zsh.hide-dirty 1
+}
+git-enable-zsh() {
+	git config oh-my-zsh.hide-status 0
+	git config oh-my-zsh.hide-dirty 0
 }
 
 function countdown(){
