@@ -6,7 +6,9 @@ export QT_IM_MODULE=ibus
 #ibus-daemon -d -x
 
 # share mouse and keyboard
-barrier &
+if [[ $(hostname) != "r-lm"* ]]; then
+	barrier &
+fi
 
 # for Logitech M570
 xbindkeys
