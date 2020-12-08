@@ -24,10 +24,10 @@ $ ./subtree.sh pull i3
 
 generate:
 ```
-$ pacman -Qqe > pkglist.txt
+$ ./generate_pkglist.sh
 ```
 
 install:
 ```
-# pacman -S --needed - < pkglist.txt
+$ ./install_pkglist.sh pkglist.txt
 ```

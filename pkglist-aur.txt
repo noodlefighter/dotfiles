@@ -1,0 +1,9 @@
+asp-git
+autojump
+gitflow-avh
+gitflow-bashcompletion-avh
+i3-cinnamon-git
+i3-gnome-git
+nutstore
+xdelta
+xdg-su
