@@ -112,6 +112,10 @@ setopt noautomenu
 # shortcut act like bash (command `bindkey` show all)
 bindkey \^U backward-kill-line
 
+# history act like bash
+bindkey "$terminfo[kcuu1]" up-history
+bindkey "$terminfo[kcud1]" down-history
+
 # load gitflow-zshcompletion
 source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
