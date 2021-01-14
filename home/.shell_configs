@@ -99,6 +99,9 @@ alias cv="progress -w"
 alias py="python"
 alias pc="proxychains"
 
+# for X11 xclip
+alias xclip='xclip -selection c'
+
 # picocom quick startup
 com()
 {
