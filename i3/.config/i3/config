@@ -220,8 +220,8 @@ bindsym $mod+p exec "flameshot gui"
 # windows auto float
 for_window [class="netease-cloud-music"]   floating enable
 for_window [class="Galculator"]   floating enable
-for_window [class="Dukto"]   floating enable sticky enable
-for_window [class="flameshot"]   floating enable sticky enable
+for_window [class="Dukto"]   floating enable
+for_window [class="flameshot"]   floating enable
 
 # random background
 exec --no-startup-id ~/.config/i3/random-bg-picture.sh
