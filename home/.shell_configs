@@ -102,6 +102,8 @@ alias pc="proxychains"
 # for X11 xclip
 alias xclip='xclip -selection c'
 
+alias activate="conda activate"
+
 # picocom quick startup
 com()
 {
@@ -261,5 +263,7 @@ export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 
 export PATH=$PATH\
 :$HOME/.yarn/bin\
-:$HOME/.cargo/bin
+:$HOME/.cargo/bin\
+:$HOME/.gem/ruby/2.7.0/bin\
+:$HOME/bin
 
