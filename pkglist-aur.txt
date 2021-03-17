@@ -18,4 +18,5 @@ proxychains-ng-git
 xdg-su
 xf86-input-keyboard
 xf86-input-mouse
+xmake
 zerofree

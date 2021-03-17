@@ -25,6 +25,7 @@ barrier
 bash-completion
 bauh
 bind
+binfmt-qemu-static
 binutils
 bison
 blueman
@@ -51,6 +52,7 @@ dhclient
 dhcpcd
 diffutils
 dmenu-manjaro
+dmg2img
 dmidecode
 dmraid
 dnsmasq
@@ -71,6 +73,7 @@ ffmpegthumbnailer
 file
 filesystem
 findutils
+flameshot
 flatpak
 flex
 galculator
@@ -96,6 +99,7 @@ gnome-system-monitor
 gnome-themes-extra
 gnu-free-fonts
 gnu-netcat
+go
 goldendict
 gpart
 gparted
@@ -130,6 +134,7 @@ i3lock
 i3status
 ibus-rime
 icon-naming-utils
+iease-music
 inetutils
 intel-ucode
 inxi
@@ -142,6 +147,7 @@ ipw2200-fw
 jfsutils
 jre8-openjdk
 jre8-openjdk-headless
+kicad-git
 less
 lib32-flex
 lib32-libva-vdpau-driver
@@ -226,7 +232,7 @@ ntp
 numlockx
 nutstore
 obs-studio
-oh-my-zsh-git
+oh-my-zsh
 openocd
 openresolv
 openssh
@@ -261,6 +267,9 @@ pulseaudio-zeroconf
 pygtk
 python-ptyprocess
 python2-ptyprocess
+qemu
+qemu-user-static
+qt5-connectivity
 qt5-styleplugins
 qtcreator
 rclone
@@ -298,6 +307,7 @@ tig
 timeshift
 tlp
 traceroute
+transmission-qt
 tree
 ttf-bitstream-vera
 ttf-dejavu
@@ -311,7 +321,8 @@ usbutils
 usbview
 util-linux
 valgrind
-vi
+virtualbox
+virtualbox-guest-utils
 visual-studio-code-bin
 vlc
 vulkan-intel
@@ -327,6 +338,7 @@ wqy-microhei
 wqy-zenhei
 xautomation
 xbindkeys
+xclip
 xcursor-chameleon-pearl-deepin
 xdg-user-dirs
 xdg-user-dirs-gtk
@@ -348,6 +360,7 @@ xorg-xkill
 xorg-xrandr
 xplayer
 xreader
+xsel
 xviewer-plugins
 yay
 yelp
