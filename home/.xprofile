@@ -15,3 +15,7 @@ xbindkeys
 
 # set environment var
 source $HOME/.bashrc
+
+# volume icon
+nohup volumeicon &
+
