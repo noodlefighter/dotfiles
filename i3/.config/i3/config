@@ -101,7 +101,7 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8 toy"
 set $ws9 "9 note"
 set $ws10 "10 web"
 
@@ -242,6 +242,7 @@ for_window [class="netease-cloud-music"]   floating enable
 for_window [class="Galculator"]   floating enable
 for_window [class="Dukto"]   floating enable
 for_window [class="flameshot"]   floating enable
+for_window [class="pavucontrol"]   floating enable
 
 # random background
 exec --no-startup-id ~/.config/i3/random-bg-picture.sh
