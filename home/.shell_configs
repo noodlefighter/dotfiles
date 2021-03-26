@@ -102,6 +102,21 @@ alias pc="proxychains"
 # for X11 xclip
 alias xclip='xclip -selection c'
 
+# for conda
+load-conda()
+{
+	__conda_setup="$('/home/r/miniconda3/bin/conda' "shell.$(basename $SHELL)" 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "/home/r/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/r/miniconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="/home/r/miniconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+}
 alias activate="conda activate"
 
 # picocom quick startup
