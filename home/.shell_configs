@@ -130,7 +130,7 @@ com()
         if [ $2 ];then
                 BAUDRATE=$2
         fi
-        sudo picocom $DEV -b $BAUDRATE
+        picocom $DEV -b $BAUDRATE
 }
 
 # ssh
