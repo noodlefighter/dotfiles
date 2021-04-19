@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-alias cp="cp -i"                          # confirm before overwriting something
+alias cp="cp -i"                          # confirm before overwriting something, ignore by -n
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
@@ -101,6 +101,7 @@ alias pc="proxychains"
 
 # for X11 xclip
 alias xclip='xclip -selection c'
+alias pwd2xclip="pwd |tr -d '\n' |xclip"
 
 # for conda
 load-conda()
