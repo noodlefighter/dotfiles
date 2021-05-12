@@ -15,7 +15,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="muse"
+# ZSH_THEME="muse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -82,7 +82,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-
 # User configuration
 
 # Example aliases
@@ -101,6 +100,38 @@ bindkey "$terminfo[kcud1]" down-history
 
 # load gitflow-zshcompletion
 source /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+# my theme (edit from muse) {
+username() {
+    echo "%{$FG[012]%}%n"
+}
+hostname() {
+    echo "%{$FG[012]%}%M"
+}
+showname() {
+    echo "${FG[077]}[$(username)${FG[077]}@$(hostname)${FG[077]}]"
+}
+
+PROMPT="$(showname) ${FG[117]}%~%{$reset_color%}\$(git_prompt_info)\$(virtualenv_prompt_info)${FG[133]}\$(git_prompt_status) ${FG[077]}ᐅ%{$reset_color%} "
+unfunction username
+unfunction hostname
+unfunction showname
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[012]}("
+ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[012]})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" ${FG[133]}✘"
+ZSH_THEME_GIT_PROMPT_CLEAN=" ${FG[118]}✔"
+
+ZSH_THEME_GIT_PROMPT_ADDED="${FG[082]}✚%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_MODIFIED="${FG[166]}✹%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DELETED="${FG[160]}✖%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_RENAMED="${FG[220]}➜%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNMERGED="${FG[082]}═%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="${FG[190]}✭%{$reset_color%}"
+
+ZSH_THEME_VIRTUALENV_PREFIX=" ["
+ZSH_THEME_VIRTUALENV_SUFFIX="]"
+# } my theme end
 
 source ~/.shell_configs
 
