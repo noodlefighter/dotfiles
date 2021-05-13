@@ -1,0 +1,62 @@
+#!/bin/env python3
+import sys
+import os
+
+# example:
+# replace-file-segment file.txt segment context.txt '#'
+
+if len(sys.argv) != 5:
+    print("invalid args")
+    exit(1)
+
+file = sys.argv[1]
+seg_name = sys.argv[2]
+seg_context_file = sys.argv[3]
+seg_prefix = sys.argv[4]
+
+if not os.path.exists(seg_context_file):
+    print("seg_context_file not exists")
+    exit(1)
+
+lines = []
+with open(file, "r") as f:
+    lines = f.readlines()
+
+seg_start = seg_prefix + ">>>>>>>> " + seg_name
+seg_end   = seg_prefix + "<<<<<<<< " + seg_name
+seg_lines = ""
+with open(seg_context_file) as f:
+    seg_lines = f.readlines()
+
+idx_start = -1
+idx_end = -1
+for i in range(len(lines)):
+    if lines[i].strip() == seg_start:
+        idx_start = i
+    elif lines[i].strip() == seg_end:
+        idx_end = i
+
+if idx_end < idx_start:
+    print("input file format error...")
+    exit(1)
+
+def write_segment(f):
+    f.write("\n")
+    f.write(seg_start + "\n")
+    f.writelines(seg_lines)
+    f.write(seg_end + "\n")
+
+if (idx_end == -1) or (idx_start == -1): # no segment, insert to the end
+    with open(file, "w") as f:
+        f.writelines(lines)
+        write_segment(f)
+
+else: # replace
+    with open(file, "w") as f:
+        if idx_start > 0:
+            f.writelines(lines[0:idx_start-1])
+
+        write_segment(f)
+
+        if idx_end < len(lines):
+            f.writelines(lines[idx_end+1:])
