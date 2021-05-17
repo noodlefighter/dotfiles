@@ -19,7 +19,7 @@ if ! [ $? = 0 ]; then
 fi
 
 rofi -dpi 1 -show combi \
-   -combi-modi run,drun -location 1 -width 100 -lines 10 \
+   -combi-modi run,drun -location 1 -width 100 -lines 10 -columns 1 \
    -separator-style none -font "mono 10" -bw 0 \
    -show-icons \
    -color-window "#222222, #222222, #b1b4b3" \

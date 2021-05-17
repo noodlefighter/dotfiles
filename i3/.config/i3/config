@@ -135,10 +135,10 @@ bindsym $alt+Shift+0 move container to workspace number $ws10
 # ===================
 #  i3 bar
 # ===================
-bar {
-        status_command i3status
-        font pango: Droid Sans Mono, Bold 8
-}
+#bar {
+#        status_command i3status
+#        font pango: Droid Sans Mono, Bold 8
+#}
 
 # for i3status hdpi... may be it's a bug
 exec --no-startup-id i3 reload

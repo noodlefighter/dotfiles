@@ -1,6 +1,9 @@
 #!/bin/sh
+
+cd "$(dirname "$0")"
+
 lock() {
-  i3lock -c 000000
+  ./blurlock
 }
 
 case "$1" in
