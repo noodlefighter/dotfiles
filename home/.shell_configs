@@ -16,12 +16,16 @@ alias vi=vim
 alias cv="progress -w"
 alias py="python"
 alias pc="proxychains"
+alias tf='tail -f'
+alias co='chown'
+alias cm='chmod'
 
 # pacman alias
-alias yy='pacman -S'
+alias yy='sudo pacman -S'
 alias yys='pacman -Ss'
 alias yyl='pacman -Ql'
 alias yyo='pacman -Qo'
+alias yyi='pacman -Qi'
 
 # ls
 alias ll="ls -lh"
