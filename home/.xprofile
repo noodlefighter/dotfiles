@@ -7,6 +7,8 @@ export QT_IM_MODULE=ibus
 if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
     export QT_QPA_PLATFORMTHEME="qt5ct"
 
+    export GTK_THEME='Adwaita:dark'
+
     nohup /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
     # networkmanager applet icon
@@ -25,7 +27,4 @@ xbindkeys
 
 # set environment var
 source $HOME/.bashrc
-
-# volume icon
-nohup volumeicon &
 
