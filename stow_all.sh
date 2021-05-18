@@ -9,7 +9,7 @@ do_restow() {
 do_restow home
 do_restow ibus
 do_restow private
-stow --target=$HOME/.config -R --dir=i3 .config
+stow --target=$HOME -R --dir=i3 home/
 
 cd ./rootfs/hosts/
 sudo $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
