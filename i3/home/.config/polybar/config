@@ -256,6 +256,5 @@ type = internal/xwindow
 label-padding = 2
 ;label-underline = ${colors.my_color7}
 ;label-foreground = ${colors.my_color4}
-label-foreground = ${colors.my_color8}
-label-xwindow-ellipsis = true
+label-foreground = #CFCFCF
 
