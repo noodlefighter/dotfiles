@@ -113,7 +113,7 @@ label-urgent-padding = 0
 
 [module/memory]
 type = internal/memory
-label = "RAM:%percentage_used%%"
+label = "RAM:%percentage_used:2%%"
 
 ; Seconds to sleep between updates
 ; Default: 1
@@ -128,7 +128,7 @@ label = %date% %time%
 
 [module/cpu]
 type = internal/cpu
-label = "CPU:%percentage%%"
+label = "CPU:%percentage:2%%"
 interval = 0.5
 
 [module/battery]
@@ -190,7 +190,7 @@ format-volume = <ramp-volume> <label-volume>
 ; Available tokens:
 ;   %percentage% (default)
 ;   %decibels%
-;label-volume = %percentage%%
+label-volume = %percentage:2%%
 
 ; Available tokens:
 ;   %percentage% (default)
