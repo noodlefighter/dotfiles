@@ -19,6 +19,7 @@ alias pc="proxychains"
 alias tf='tail -f'
 alias co='chown'
 alias cm='chmod'
+alias dm='sudo dmesg --follow'
 
 # pacman alias
 alias yy='sudo pacman -S'
@@ -33,7 +34,7 @@ alias sl=ls
 alias l=ls
 
 # desktop
-alias e="nemo \$PWD & 1> /dev/null"        # run nemo of current pwd, means "explorer"
+alias e="nh nemo $PWD"        # run nemo of current pwd, means "explorer"
 alias c='code $PWD'                        # open vscode for current dir
 alias o='xdg-open'
 alias ty='nh typora'
