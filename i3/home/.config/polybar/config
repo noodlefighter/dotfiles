@@ -59,12 +59,13 @@ font-1 = "思源黑体 CN:fontformat=truetype:size=9;1"
 font-2 = FontAwesome:fontformat=truetype:size=9;1
 font-3 = "Noto Sans Symbols2:fontformat=truetype:size=9;2"
 
-
 modules-left = i3
 modules-center = xwindow
-modules-right = cpu memory fs-root fs-home wlan lan date battery pulseaudio
+modules-right = cpu memory fs-root fs-home wlan lan pulseaudio battery date
 
-separator = " | "
+separator = "|"
+separator-padding = 1
+separator-foreground = ${colors.my_color8}
 
 tray-position = right
 tray-padding = 4
