@@ -17,11 +17,11 @@ set $mod Mod4
 # ===================
 #  i3wm
 # ===================
-# reload the configuration file
-bindsym $mod+Shift+c reload
+# reload the configuration file - "i3-msg reload"
+#bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# restart i3 inplace (preserves your layout/session, can be used to upgrade - "i3-msg restart"
+#bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
@@ -133,15 +133,9 @@ bindsym $alt+Shift+9 move container to workspace number $ws9
 bindsym $alt+Shift+0 move container to workspace number $ws10
 
 # ===================
-#  i3 bar
+#  polybar
 # ===================
-#bar {
-#        status_command i3status
-#        font pango: Droid Sans Mono, Bold 8
-#}
-
-# for i3status hdpi... may be it's a bug
-exec --no-startup-id i3 reload
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # ===================
 #  Looks
@@ -205,9 +199,6 @@ bindsym $mod+Shift+Return exec nemo
 # run launcher
 bindsym $alt+q exec ~/.config/i3/show-launcher.sh
 
-# run window switcher
-bindsym $mod+m exec ~/.config/i3/quickswitch.py --dmenu="rofi -dpi 1 -dmenu -b -i -l 20"
-
 # exit menu
 set $i3exit ~/.config/i3/i3exit
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -226,8 +217,6 @@ bindsym $mod+x mode "$mode_system"
 
 # Lock
 bindsym $mod+o exec $i3exit lock
-#bindsym $mod+o exec "cinnamon-screensaver-command -l; xset dpms force off;"
-#bindsym $mod+o exec "cinnamon-screensaver-command -l"
 
 
 # ===================
@@ -246,3 +235,9 @@ for_window [class="pavucontrol"]   floating enable
 
 # random background
 exec --no-startup-id ~/.config/i3/random-bg-picture.sh
+
+# startup applications
+exec --no-startup-id ibus-daemon -d -x
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+

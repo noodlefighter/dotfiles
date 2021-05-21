@@ -1,20 +1,12 @@
 
-# startup ibus
+# ibus
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
     export QT_QPA_PLATFORMTHEME="qt5ct"
-
     export GTK_THEME='Adwaita:dark'
-
-    nohup /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-    # networkmanager applet icon
-    nohup nm-applet &
-
-    ibus-daemon -d -x
 fi
 
 # share mouse and keyboard
