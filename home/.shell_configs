@@ -7,8 +7,6 @@ nh() {
 }
 
 # -------------------------------- alias
-# human friendly
-alias cp="cp -i"                          # confirm before overwriting something, ignore by -n
 alias df='df -h'
 alias free='free -h'
 alias iostat='iostat -h'
@@ -17,8 +15,6 @@ alias cv="progress -w"
 alias py="python"
 alias pc="proxychains"
 alias tf='tail -f'
-alias co='chown'
-alias cm='chmod'
 alias dm='sudo dmesg --follow'
 
 # pacman alias
@@ -28,13 +24,18 @@ alias yyl='pacman -Ql'
 alias yyo='pacman -Qo'
 alias yyi='pacman -Qi'
 
-# ls
+# file
 alias ll="ls -lh"
 alias sl=ls
 alias l=ls
+alias la='ls -lAh'
+alias cp="cp -i"                          # confirm before overwriting something, ignore by -n
+alias co='chown'
+alias cm='chmod'
+alias md='mkdir -p'
 
 # desktop
-alias e="nh nemo $PWD"        # run nemo of current pwd, means "explorer"
+alias e="nemo \$PWD & 1> /dev/null"        # run nemo of current pwd, means "explorer"
 alias c='code $PWD'                        # open vscode for current dir
 alias o='xdg-open'
 alias ty='nh typora'
@@ -42,7 +43,9 @@ alias ty='nh typora'
 # for X11 xclip
 alias xclip='xclip -selection c'
 alias pwd2xclip="pwd |tr -d '\n' |xclip"
-
+path2xclip() {
+  print $PWD/$1 |tr -d '\n' |xclip
+}
 
 
 # -------------------------------- archive file functions
