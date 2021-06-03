@@ -1,6 +1,10 @@
 #!/bin/bash
 
 HOST=$(hostname)
+SUDO=sudo
+if [[ $UID == 0 ]]; then
+  SUDO=
+fi
 
 cd "$(dirname "$0")"
 
@@ -23,9 +27,9 @@ stow --target=$HOME -R --dir=i3 home/
 
 echo write hosts file ...
 cd ./rootfs/hosts/
-sudo $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
+$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
 if [[ -e "./$HOST" ]]; then
-	sudo $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
+	$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
 fi
 cd - > /dev/null
 
@@ -33,7 +37,7 @@ echo copy private/rootfs ...
 cd ./private/rootfs/
 if [[ -d "./$HOST" ]]; then
   cd $HOST
-  sudo cp -vrf $PWD/* /
+  $SUDO cp -vrf $PWD/* /
 fi
 cd - > /dev/null
 
