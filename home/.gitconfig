@@ -9,3 +9,5 @@
 	postBuffer = 524288000
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
