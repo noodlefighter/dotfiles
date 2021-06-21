@@ -37,7 +37,7 @@ alias md='mkdir -p'
 # desktop
 alias e="nemo \$PWD & 1> /dev/null"        # run nemo of current pwd, means "explorer"
 alias c='code $PWD'                        # open vscode for current dir
-alias o='xdg-open'
+alias o='nh xdg-open'
 alias ty='nh typora'
 
 # for X11 xclip
