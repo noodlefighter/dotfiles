@@ -11,6 +11,7 @@ bind main R ?git revert %(commit)
 
 # reset to commit
 bind main ! ?git reset %(commit)
+bind main @ ?git reset --hard %(commit)
 
 # checkout selected commit
 bind main c ?git checkout --detach %(commit) -b branch_%(commit)
