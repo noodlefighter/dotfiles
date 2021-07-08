@@ -39,6 +39,26 @@ alias e="nemo \$PWD & 1> /dev/null"        # run nemo of current pwd, means "exp
 alias c='code $PWD'                        # open vscode for current dir
 alias o='nh xdg-open'
 alias ty='nh typora'
+rdp() {
+  RDP_HOST="/v:$1"
+  if [[ $# == 2 ]]; then
+    RDP_PASSWD="/p:$2"
+  fi
+  set -x
+  xfreerdp /u:r $RDP_PASSWD /w:1900 /h:1040 $RDP_HOST
+}
+
+# net
+ssh-port-forward() {
+  local HOST=$1
+  local PORT=$2
+  ssh -NL $PORT:localhost:$PORT $HOST
+}
+
+ssh-socks5-tunnel-port5888() {
+  local HOST=$1
+  ssh -ND 5888 $HOST
+}
 
 # for X11 xclip
 alias xclip='xclip -selection c'
