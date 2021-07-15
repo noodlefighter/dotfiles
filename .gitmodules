@@ -5,5 +5,5 @@
 	path = i3
 	url = git@github.com:noodlefighter/i3wm-config.git
 [submodule "ibus/.config/ibus/rime"]
-	path = ibus/.config/ibus/rime
+	path = rime
 	url = git@github.com:noodlefighter/rime-config.git
