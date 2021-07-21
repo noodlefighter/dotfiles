@@ -28,12 +28,15 @@ rm -vrf "$RIME_DIR"
 ln -sv "$PWD/rime/" "$RIME_DIR"
 
 echo write hosts file ...
-cd ./rootfs/hosts/
+cd ./hosts/
 $SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
 if [[ -e "./$HOST" ]]; then
 	$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
 fi
 cd - > /dev/null
+
+echo write rootfs files ...
+cp -vrf local_rootfs/* $HOME/.local/
 
 echo copy private/rootfs ...
 cd ./private/rootfs/
