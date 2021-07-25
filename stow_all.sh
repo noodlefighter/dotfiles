@@ -29,9 +29,9 @@ ln -sv "$PWD/rime/" "$RIME_DIR"
 
 echo write hosts file ...
 cd ./hosts/
-$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
+$SUDO $HOME/.local/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
 if [[ -e "./$HOST" ]]; then
-	$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
+	$SUDO $HOME/.local/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
 fi
 cd - > /dev/null
 
