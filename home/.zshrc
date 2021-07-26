@@ -133,6 +133,8 @@ ZSH_THEME_VIRTUALENV_PREFIX=" ["
 ZSH_THEME_VIRTUALENV_SUFFIX="]"
 # } my theme end
 
+source ~/.zsh/bd.zsh
+
 source ~/.shell_configs
 
 

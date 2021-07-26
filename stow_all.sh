@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e  
+
 HOST=$(hostname)
 SUDO=sudo
 if [[ $UID == 0 ]]; then
@@ -24,6 +26,7 @@ stow --target=$HOME -R --dir=i3 home/
 
 echo restow rime ...
 RIME_DIR=$HOME/.local/share/fcitx5/rime
+mkdir -p "$RIME_DIR"
 rm -vrf "$RIME_DIR"
 ln -sv "$PWD/rime/" "$RIME_DIR"
 
