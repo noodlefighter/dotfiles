@@ -284,7 +284,4 @@ export PATH=$PATH\
 # git editor
 export GIT_EDITOR=vim
 
-# export fakeroot environment
-source $HOME/fakeroot/set-env.sh
-
 
