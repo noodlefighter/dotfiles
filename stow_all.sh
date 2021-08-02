@@ -39,6 +39,9 @@ fi
 cd - > /dev/null
 
 echo write rootfs files ...
+$SUDO cp -vrf rootfs/* /
+
+echo write local rootfs files ...
 cp -vrf local_rootfs/* $HOME/.local/
 
 echo copy private/rootfs ...
