@@ -35,8 +35,9 @@ alias cm='chmod'
 alias md='mkdir -p'
 
 # do not use rm
-alias rm="echo do not use rm, use trash-put, or /bin/rm && return 1"
+alias rm="echo do not use rm, use trash-put(tp), or /bin/rm && return 1"
 alias rm-use='unalias rm'
+alias tp='trash-put'
 
 if ! which safe-rm > /dev/null ; then
   echo "safe-rm not found, please install it ..."
