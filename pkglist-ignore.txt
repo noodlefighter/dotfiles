@@ -1,3 +1,0 @@
-arduino
-yuview
-texmaker

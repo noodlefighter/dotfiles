@@ -1,0 +1,127 @@
+#!/bin/env python3
+
+import os
+import json
+import click
+
+default_pkglist_cmd = 'pacman -Qeqn'
+
+def save_data():
+    global g_file
+    global g_data
+    with open(g_file, 'w+') as f:
+        f.write(json.dumps(g_data, sort_keys=True, indent=4))
+
+@click.group()
+@click.argument('file')
+def cli(file):
+    global g_file
+    global g_data
+    global g_pending
+
+    if os.path.exists(file):
+        with open(file, 'r+') as f:
+            g_data = json.loads(f.read())
+    else:
+        g_data = dict()
+
+    if 'sync' not in dict(g_data):
+        g_data['sync'] = list()
+    if 'ignore' not in dict(g_data):
+        g_data['ignore'] = list()
+    if 'pkglist_cmd' not in dict(g_data):
+        g_data['pkglist_cmd'] = default_pkglist_cmd
+
+    g_file = file
+
+    # get pending list
+    os.system(g_data['pkglist_cmd'] + " > pkglist.tmp.txt")
+    with open("pkglist.tmp.txt") as f:
+        l = f.readlines()
+        l = map(lambda x: x.strip(), l)
+        l = filter(lambda x: x not in g_data['ignore'] and x not in g_data['sync'], l)
+        g_pending = list(l)
+    os.system("rm pkglist.tmp.txt")
+
+@click.command(name='list-pending')
+def list_pending():
+    global g_pending
+    click.echo('\n'.join(g_pending))
+
+@click.command(name='list-sync')
+def list_sync():
+    global g_data
+    click.echo('\n'.join(g_data['sync']))
+
+@click.command(name='list-ignore')
+def list_ignore():
+    global g_data
+    click.echo('\n'.join(g_data['ignore']))
+
+@click.command()
+@click.argument('args', nargs=-1)
+def add(args):
+    global g_data
+
+    add_list = list(filter(lambda x: x not in g_data['sync'], args))
+    g_data['sync'].extend(add_list)
+    if len(add_list) == 0:
+        print('added nothing')
+    else:
+        print(f"added: {' '.join(add_list)}")
+
+    save_data()
+
+@click.command()
+@click.argument('args', nargs=-1)
+def ignore(args):
+    global g_data
+    ignore_list = list(filter(lambda x: x not in g_data['ignore'], args))
+    g_data['ignore'].extend(ignore_list)
+    if len(ignore_list) == 0:
+        print('ignore nothing')
+    else:
+        print(f"ignore: {' '.join(ignore_list)}")
+
+    save_data()
+
+@click.command(name='ignore-all')
+def ignore_all():
+    global g_data
+    global g_pending
+    ignore_list = list(filter(lambda x: x not in g_data['ignore'], g_pending))
+    g_data['ignore'].extend(ignore_list)
+    if len(ignore_list) == 0:
+        print('ignore nothing')
+    else:
+        print(f"ignore: {' '.join(ignore_list)}")
+
+    save_data()
+
+@click.command(name='del')
+@click.argument('args', nargs=-1)
+def delete(args):
+    global g_data
+    g_data['ignore'] = list(filter(lambda x: x not in args, g_data['ignore']))
+    g_data['sync'] = list(filter(lambda x: x not in args, g_data['sync']))
+    save_data()
+
+
+@click.command(name='set-pkglist-cmd')
+@click.argument('args', nargs=-1)
+def set_pkglist_cmd(args):
+    global g_data
+    g_data['pkglist_cmd'] = ' '.join(args)
+    save_data()
+
+cli.add_command(list_pending)
+cli.add_command(list_sync)
+cli.add_command(list_ignore)
+cli.add_command(add)
+cli.add_command(ignore)
+cli.add_command(delete)
+cli.add_command(ignore_all)
+cli.add_command(set_pkglist_cmd)
+
+if __name__ == '__main__':
+    cli()

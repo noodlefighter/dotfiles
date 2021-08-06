@@ -22,12 +22,14 @@ $ ./subtree.sh pull i3
 
 ## pkglist
 
-generate:
+list pending packages:
+
 ```
-$ ./generate_pkglist.sh
+$ ./pkgsync pkglist.json list-pending
 ```
 
-install:
+install from list:
 ```
-$ ./install_pkglist.sh pkglist.txt
+$ ./pkgsync pkglist.json list-sync | sudo pacman -S -
 ```
+

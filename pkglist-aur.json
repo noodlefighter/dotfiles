@@ -1,0 +1,28 @@
+{
+    "ignore": [],
+    "pkglist_cmd": "pacman -Qeqm",
+    "sync": [
+        "appimagetool-bin",
+        "ch34x-dkms-git",
+        "dukto",
+        "electricfence",
+        "flamegraph",
+        "gitflow-bashcompletion-avh",
+        "gitflow-zshcompletion-avh",
+        "gphotofs",
+        "i3-cinnamon-git",
+        "jlink-software-and-documentation",
+        "libite",
+        "libubox",
+        "libuev",
+        "linuxdeployqt",
+        "micropython",
+        "netron-bin",
+        "proxychains-ng-git",
+        "xdg-su",
+        "xf86-input-keyboard",
+        "xf86-input-mouse",
+        "xmake",
+        "zerofree"
+    ]
+}
