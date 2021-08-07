@@ -243,7 +243,6 @@
         "thunderbird",
         "tlp",
         "traceroute",
-        "trash-cli",
         "ttf-bitstream-vera",
         "ttf-dejavu",
         "ttf-droid",
@@ -452,6 +451,7 @@
         "riscv64-linux-gnu-gcc",
         "xdelta3",
         "code",
-        "openbsd-netcat"
+        "openbsd-netcat",
+        "trash-cli"
     ]
 }
