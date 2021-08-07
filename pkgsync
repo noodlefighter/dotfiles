@@ -1,10 +1,11 @@
 #!/bin/env python3
 
+import sys
 import os
 import json
 import click
 
-default_pkglist_cmd = 'pacman -Qeqn'
+default_pkglist_cmd = 'echo a dummy get pkglist command'
 
 def save_data():
     global g_file
@@ -23,6 +24,7 @@ def cli(file):
         with open(file, 'r+') as f:
             g_data = json.loads(f.read())
     else:
+        print(f"warning, no file '{file}'", file=sys.stderr)
         g_data = dict()
 
     if 'sync' not in dict(g_data):

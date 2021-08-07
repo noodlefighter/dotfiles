@@ -70,10 +70,10 @@ ssh-socks5-tunnel-port5888() {
 }
 
 # for X11 xclip
-alias xclip='xclip -selection c'
-alias pwd2xclip="pwd |tr -d '\n' |xclip"
+alias clip="tr -d '\n' | xclip -selection c"
+alias pwd2xclip="pwd |tr -d '\n' |clip"
 path2xclip() {
-  print $PWD/$1 |tr -d '\n' |xclip
+  print $PWD/$1 |tr -d '\n' |clip
 }
 
 

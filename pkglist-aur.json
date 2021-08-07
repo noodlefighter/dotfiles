@@ -1,5 +1,13 @@
 {
-    "ignore": [],
+    "ignore": [
+        "asp-git",
+        "intelmas",
+        "phantomjs-bin",
+        "riscv-openocd",
+        "riscv64-unknown-elf-gcc",
+        "xf86-input-keyboard",
+        "xf86-input-mouse"
+    ],
     "pkglist_cmd": "pacman -Qeqm",
     "sync": [
         "appimagetool-bin",
@@ -18,11 +26,15 @@
         "linuxdeployqt",
         "micropython",
         "netron-bin",
-        "proxychains-ng-git",
         "xdg-su",
-        "xf86-input-keyboard",
-        "xf86-input-mouse",
         "xmake",
-        "zerofree"
+        "zerofree",
+        "add-gitignore",
+        "autojump-rs",
+        "code-marketplace",
+        "debtap",
+        "nutstore-experimental",
+        "safe-rm",
+        "pkgbuild-introspection"
     ]
 }
