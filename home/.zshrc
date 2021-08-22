@@ -102,6 +102,13 @@ bindkey "$terminfo[kcud1]" down-history
 source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
 # my theme (edit from muse/af-magic) {
+
+# let diff hostname show diff color
+__HOST_SYMB_LIST=("\u2764" "\u2605" "\u25C8" "\u263B" "\u2618" "\u2622" "\u26A1" "\u2602" "\u2708" "\u10005" "\u2117" "\u0099" "\u00B6" "\u211E" "\u27A4" "\u21BB" "\u21C5")
+__HOST_SHA=$(hostname | cksum | awk '{print $1}')
+HOST_COLOR=0$(echo "$__HOST_SHA % 6 + 31" | bc)
+HOST_SYMB=$(echo "$__HOST_SHA % ${#__HOST_SYMB_LIST[*]} + 1" | bc)
+HOST_SYMB=$(echo "${__HOST_SYMB_LIST[$HOST_SYMB]}")
 function afmagic_dashes {
    local PYTHON_ENV="$VIRTUAL_ENV"
    [[ -z "$PYTHON_ENV" ]] && PYTHON_ENV="$CONDA_DEFAULT_ENV"
@@ -113,11 +120,11 @@ function afmagic_dashes {
    fi
 }
 __showname() {
-    echo "%{$FG[012]%}%n${FG[077]}@%{$FG[012]%}%M"
+    echo "%{$FG[$HOST_COLOR]%}%n${FG[077]}@%{$FG[$HOST_COLOR]%}%M"
 }
-PROMPT='$FG[137]${(l.$COLUMNS..-.)}%{$reset_color%}
+PROMPT='$FG[$HOST_COLOR]${(l.$COLUMNS..-.)}%{$reset_color%}
 [ $(__showname):${FG[117]}%~%{$reset_color%} ] $(git_prompt_info)$(virtualenv_prompt_info)${FG[133]}$(git_prompt_status)
-${FG[077]}ᐅ%{$reset_color%} '
+${FG[$HOST_COLOR]}$HOST_SYMB%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[012]}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[012]})%{$reset_color%}"
