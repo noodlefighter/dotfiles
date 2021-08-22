@@ -101,21 +101,23 @@ bindkey "$terminfo[kcud1]" down-history
 # load gitflow-zshcompletion
 source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
-# my theme (edit from muse) {
-username() {
-    echo "%{$FG[012]%}%n"
-}
-hostname() {
-    echo "%{$FG[012]%}%M"
-}
-showname() {
-    echo "${FG[077]}[$(username)${FG[077]}@$(hostname)${FG[077]}]"
-}
+# my theme (edit from muse/af-magic) {
+function afmagic_dashes {
+   local PYTHON_ENV="$VIRTUAL_ENV"
+   [[ -z "$PYTHON_ENV" ]] && PYTHON_ENV="$CONDA_DEFAULT_ENV"
 
-PROMPT="$(showname) ${FG[117]}%~%{$reset_color%}\$(git_prompt_info)\$(virtualenv_prompt_info)${FG[133]}\$(git_prompt_status) ${FG[077]}ᐅ%{$reset_color%} "
-unfunction username
-unfunction hostname
-unfunction showname
+   if [[ -n "$PYTHON_ENV" && "$PS1" = \(* ]]; then
+       echo $(( COLUMNS - ${#PYTHON_ENV} - 3 ))
+   else
+       echo $COLUMNS
+   fi
+}
+__showname() {
+    echo "%{$FG[012]%}%n${FG[077]}@%{$FG[012]%}%M"
+}
+PROMPT='$FG[137]${(l.$COLUMNS..-.)}%{$reset_color%}
+[ $(__showname):${FG[117]}%~%{$reset_color%} ] $(git_prompt_info)$(virtualenv_prompt_info)${FG[133]}$(git_prompt_status)
+${FG[077]}ᐅ%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[012]}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[012]})%{$reset_color%}"

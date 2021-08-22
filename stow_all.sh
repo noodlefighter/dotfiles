@@ -16,6 +16,7 @@ do_restow() {
 }
 
 echo restow home...
+rm $HOME/.config/fcitx5/profile  # workaround for fcitx5
 do_restow home
 
 echo restow private/home ...
