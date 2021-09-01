@@ -313,7 +313,7 @@
         "autojump",
         "gnu-netcat",
         "ncurses5-compat-libs",
-        "visual-studio-code-bin"
+        "freecad"
     ],
     "pkglist_cmd": "pacman -Qeqn",
     "sync": [
@@ -454,8 +454,8 @@
         "python-pip",
         "riscv64-linux-gnu-gcc",
         "xdelta3",
-        "code",
         "openbsd-netcat",
-        "trash-cli"
+        "trash-cli",
+        "visual-studio-code-bin"
     ]
 }
