@@ -163,6 +163,19 @@ com()
         fi
         picocom $DEV -b $BAUDRATE
 }
+# write hex with ctrl+a,w
+comhex()
+{
+        DEV="/dev/ttyUSB0"
+        BAUDRATE=115200
+        if [ $1 ];then
+                DEV=$1
+        fi
+        if [ $2 ];then
+                BAUDRATE=$2
+        fi
+        picocom $DEV -b $BAUDRATE --imap spchex,nrmhex,8bithex
+}
 
 # update system time from NTP server
 update-sys-time() {

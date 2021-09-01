@@ -309,7 +309,11 @@
         "vcdimager",
         "vi",
         "wine-gecko",
-        "xosd"
+        "xosd",
+        "autojump",
+        "gnu-netcat",
+        "ncurses5-compat-libs",
+        "visual-studio-code-bin"
     ],
     "pkglist_cmd": "pacman -Qeqn",
     "sync": [
