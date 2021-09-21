@@ -16,7 +16,7 @@ do_restow() {
 }
 
 echo restow home...
-rm $HOME/.config/fcitx5/profile  # workaround for fcitx5
+rm -f $HOME/.config/fcitx5/profile  # workaround for fcitx5
 do_restow home
 
 echo restow private/home ...
@@ -31,6 +31,9 @@ mkdir -p "$RIME_DIR"
 rm -vrf "$RIME_DIR"
 ln -sv "$PWD/rime/" "$RIME_DIR"
 
+echo write local rootfs files ...
+cp -vrf local_rootfs/* $HOME/.local/
+
 echo write hosts file ...
 cd ./hosts/
 $SUDO $HOME/.local/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
@@ -41,9 +44,6 @@ cd - > /dev/null
 
 echo write rootfs files ...
 $SUDO cp -vrf rootfs/* /
-
-echo write local rootfs files ...
-cp -vrf local_rootfs/* $HOME/.local/
 
 echo copy private/rootfs ...
 cd ./private/rootfs/
