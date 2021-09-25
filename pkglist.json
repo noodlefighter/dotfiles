@@ -313,7 +313,9 @@
         "autojump",
         "gnu-netcat",
         "ncurses5-compat-libs",
-        "freecad"
+        "freecad",
+        "kicad-library-3d",
+        "typescript"
     ],
     "pkglist_cmd": "pacman -Qeqn",
     "sync": [
@@ -455,6 +457,7 @@
         "xdelta3",
         "openbsd-netcat",
         "trash-cli",
-        "visual-studio-code-bin"
+        "visual-studio-code-bin",
+        "imv"
     ]
 }
