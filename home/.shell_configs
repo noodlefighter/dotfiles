@@ -54,7 +54,8 @@ rdp() {
     RDP_PASSWD="/p:$2"
   fi
   set -x
-  xfreerdp /u:r $RDP_PASSWD /w:1900 /h:1040 $RDP_HOST
+  xfreerdp /u:r $RDP_PASSWD /w:1900 /h:1040 /audio-mode:0 $RDP_HOST
+  # audio-mode: 0 - redirect locally, 1 - leave on server, 2 - none
 }
 
 # net
@@ -298,6 +299,7 @@ export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 
 export PATH=$PATH\
+:$HOME/.nimble/bin\
 :$HOME/.yarn/bin\
 :$HOME/.cargo/bin\
 :$HOME/.gem/ruby/2.7.0/bin\
