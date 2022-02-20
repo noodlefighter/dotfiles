@@ -91,6 +91,9 @@ source $ZSH/oh-my-zsh.sh
 # let auto complete behave like bash
 setopt noautomenu
 
+# do not share history in diff session
+unsetopt share_history
+
 # shortcut act like bash (command `bindkey` show all)
 bindkey \^U backward-kill-line
 
@@ -122,9 +125,9 @@ function afmagic_dashes {
 __showname() {
     echo "%{$FG[$HOST_COLOR]%}%n${FG[077]}@%{$FG[$HOST_COLOR]%}%M"
 }
-PROMPT='$FG[$HOST_COLOR]${(l.$COLUMNS..-.)}%{$reset_color%}
+PROMPT="$FG[$HOST_COLOR]${(l.$COLUMNS..-.)}%{$reset_color%}
 [ $(__showname):${FG[117]}%~%{$reset_color%} ] $(git_prompt_info)$(virtualenv_prompt_info)${FG[133]}$(git_prompt_status)
-${FG[$HOST_COLOR]}$HOST_SYMB%{$reset_color%} '
+${FG[$HOST_COLOR]}$HOST_SYMB%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[012]}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[012]})%{$reset_color%}"
