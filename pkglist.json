@@ -458,6 +458,12 @@
         "openbsd-netcat",
         "trash-cli",
         "visual-studio-code-bin",
-        "imv"
+        "imv",
+        "grim",
+        "slurp",
+        "sway",
+        "swaylock",
+        "waybar",
+        "xorg-xwayland"
     ]
 }

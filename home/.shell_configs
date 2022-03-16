@@ -287,6 +287,24 @@ unsetproxy() {
 	unset no_proxy
 }
 
+quick-git-patch-init-ebi() {
+  git init
+  git-user-ebi
+  git add --all
+  git commit -m init
+}
+quick-git-patch-execute() {
+  git add --all
+  git commit -m "my patch"
+  git format-patch -1
+  mv 0001-my-patch.patch ../
+}
+quick-git-patch-execute-amend() {
+  git add --all
+  git commit --amend -m "my patch"
+  git format-patch -1
+  mv 0001-my-patch.patch ../
+}
 
 # google android git-repo
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
@@ -310,4 +328,5 @@ export PATH=$PATH\
 # git editor
 export GIT_EDITOR=vim
 
-
+# workaround for alacritty wayland
+export WAYLAND_DISPLAY=wayland-1
