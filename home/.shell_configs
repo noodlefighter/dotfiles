@@ -257,6 +257,24 @@ git-enable-zsh() {
 	git config oh-my-zsh.hide-dirty 0
 }
 
+quick-git-patch-init-ebi() {
+  git init
+  git-user-ebi
+  git add --all
+  git commit -m init
+}
+-quick-git-patch-execute() {
+  git add --all
+  git commit -m "my patch"
+  git format-patch -1
+  mv 0001-my-patch.patch ../
+}
+quick-git-patch-execute-amend() {
+  git add --all
+  git commit --amend -m "my patch"
+  git format-patch -1
+  mv 0001-my-patch.patch ../
+}
 
 # -------------------------------- user config
 

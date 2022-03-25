@@ -112,21 +112,11 @@ __HOST_SHA=$(hostname | cksum | awk '{print $1}')
 HOST_COLOR=0$(echo "$__HOST_SHA % 6 + 31" | bc)
 HOST_SYMB=$(echo "$__HOST_SHA % ${#__HOST_SYMB_LIST[*]} + 1" | bc)
 HOST_SYMB=$(echo "${__HOST_SYMB_LIST[$HOST_SYMB]}")
-function afmagic_dashes {
-   local PYTHON_ENV="$VIRTUAL_ENV"
-   [[ -z "$PYTHON_ENV" ]] && PYTHON_ENV="$CONDA_DEFAULT_ENV"
 
-   if [[ -n "$PYTHON_ENV" && "$PS1" = \(* ]]; then
-       echo $(( COLUMNS - ${#PYTHON_ENV} - 3 ))
-   else
-       echo $COLUMNS
-   fi
-}
 __showname() {
     echo "%{$FG[$HOST_COLOR]%}%n${FG[077]}@%{$FG[$HOST_COLOR]%}%M"
 }
-PROMPT="$FG[$HOST_COLOR]${(l.$COLUMNS..-.)}%{$reset_color%}
-[ $(__showname):${FG[117]}%~%{$reset_color%} ] $(git_prompt_info)$(virtualenv_prompt_info)${FG[133]}$(git_prompt_status)
+PROMPT="[ $(__showname):${FG[117]}%~%{$reset_color%} ] $(git_prompt_info)$(virtualenv_prompt_info)${FG[133]}$(git_prompt_status)
 ${FG[$HOST_COLOR]}$HOST_SYMB%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[012]}("
