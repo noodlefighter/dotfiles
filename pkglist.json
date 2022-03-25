@@ -464,12 +464,6 @@
         "sway",
         "swaylock",
         "waybar",
-        "xorg-xwayland",
-        "chrpath",
-        "diffstat",
-        "drawio-desktop-bin",
-        "goldendict-qt5-git",
-        "ranger",
-        "vagrant"
+        "xorg-xwayland"
     ]
 }
