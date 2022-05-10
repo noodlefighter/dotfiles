@@ -16,6 +16,7 @@ alias py="python"
 alias pc="proxychains"
 alias tf='tail -f'
 alias dm='sudo dmesg --follow'
+alias locate='locate -i'
 
 # pacman alias
 alias yy='sudo pacman -S'
@@ -134,7 +135,7 @@ pk ()
 	if [ ! -e $1 ] ; then
 		typeset -l TMP
 		TMP=$1
-		FILE=$1		
+		FILE=$1
 		shift 1
 		case $TMP in
 			*.tar.bz2)   tar cjf $FILE $*  ;;
@@ -278,17 +279,6 @@ quick-git-patch-execute-amend() {
 
 # -------------------------------- user config
 
-# git user info
-git-user-ebi() {
-	git config user.email "ebi@1000bug.com"
-	git config user.name  "ebi"
-}
-
-git-user-noodlefighter() {
-        git config user.email "noodlefighter@gmail.com"
-        git config user.name  "noodlefighter"
-}
-
 # set proxy
 setproxy() {
 	export proxy="http://r-proxy:7890"
@@ -328,4 +318,7 @@ export PATH=$PATH\
 # git editor
 export GIT_EDITOR=vim
 
-
+# load private config
+if [[ -e $HOME/.shell_private ]]; then
+  source $HOME/.shell_private
+fi
