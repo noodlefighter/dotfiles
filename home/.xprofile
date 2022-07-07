@@ -17,6 +17,9 @@ fi
 # for Logitech M570
 xbindkeys
 
+# mouse wheel
+imwheel
+
 # set environment var
 source $HOME/.bashrc
 
