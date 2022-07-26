@@ -17,6 +17,7 @@ alias pc="proxychains"
 alias tf='tail -f'
 alias dm='sudo dmesg --follow'
 alias locate='locate -i'
+alias lg='lazygit'
 
 # pacman alias
 alias yy='sudo pacman -S'
@@ -30,7 +31,6 @@ alias ll="ls -lh"
 alias sl=ls
 alias l=ls
 alias la='ls -lAh'
-alias cp="cp -i"                          # confirm before overwriting something, ignore by -n
 alias co='chown'
 alias cm='chmod'
 alias md='mkdir -p'
