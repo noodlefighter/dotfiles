@@ -135,9 +135,16 @@ ZSH_THEME_VIRTUALENV_PREFIX=" ["
 ZSH_THEME_VIRTUALENV_SUFFIX="]"
 # } my theme end
 
-source ~/.zsh/bd.zsh
+if [[ -e /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+fi
 
-source ~/.shell_configs
+if [[ -e ~/.zsh/bd.zsh ]]; then
+  source ~/.zsh/bd.zsh
+fi
 
+if [[ -e ~/.shell_configs ]]; then
+  source ~/.shell_configs
+fi
 
 

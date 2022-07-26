@@ -13,3 +13,5 @@
 [rebase]
 	autoStash = true
 
+[credential]
+	helper = store
