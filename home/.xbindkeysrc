@@ -52,9 +52,9 @@
 
 # for Logitech M570
 "xte 'key Page_Up'"
-b:4
+b:9
 "xte 'key Page_Down'"
-b:5
+b:8
 
 
 #"xterm -geom 50x20+20+20"
