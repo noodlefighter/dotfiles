@@ -259,7 +259,6 @@
         "which",
         "wmctrl",
         "wpa_supplicant",
-        "xautomation",
         "xcursor-chameleon-pearl-deepin",
         "xdg-user-dirs",
         "xdg-user-dirs-gtk",
@@ -469,6 +468,7 @@
         "luarocks",
         "ranger",
         "unrar",
-        "vagrant"
+        "vagrant",
+        "xautomation"
     ]
 }
