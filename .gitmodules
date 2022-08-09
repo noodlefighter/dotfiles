@@ -7,3 +7,7 @@
 [submodule "ibus/.config/ibus/rime"]
 	path = rime
 	url = git@github.com:noodlefighter/rime-config.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot.git
+	ignore = dirty

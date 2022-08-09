@@ -1,0 +1,20 @@
+
+- link:
+    ~/:
+        glob: true
+        path: home/.*
+        force: true
+    ~/.config:
+        glob: true
+        path: config/*
+        force: true
+    ~/.local/share/fcitx5/rime:
+        create: true        
+        path: rime/
+    ~/bin/:
+        create: true
+        glob: true
+        path: local_rootfs/bin/**
+    
+
+

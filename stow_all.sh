@@ -8,37 +8,25 @@ if [[ $UID == 0 ]]; then
   SUDO=
 fi
 
+DOTBOT=./dotbot/bin/dotbot 
+
 cd "$(dirname "$0")"
 
+echo install home...
+$DOTBOT -c install.conf.yaml
 
-do_restow() {
-	stow --target=$HOME -R $*
-}
+echo install private/home ...
+$DOTBOT -c private/install.conf.yaml
 
-echo restow home...
-rm -f $HOME/.config/fcitx5/profile  # workaround for fcitx5
-do_restow home
+echo install i3/home ...
+$DOTBOT -c i3/install.conf.yaml
 
-echo restow private/home ...
-stow --target=$HOME -R --dir=private home/
-
-echo restow i3/home ...
-stow --target=$HOME -R --dir=i3 home/
-
-echo restow rime ...
-RIME_DIR=$HOME/.local/share/fcitx5/rime
-mkdir -p "$RIME_DIR"
-rm -vrf "$RIME_DIR"
-ln -sv "$PWD/rime/" "$RIME_DIR"
-
-echo write local rootfs files ...
-cp -vrf local_rootfs/* $HOME/.local/
 
 echo write hosts file ...
 cd ./hosts/
-$SUDO $HOME/.local/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
+$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts ./hosts '#'
 if [[ -e "./$HOST" ]]; then
-	$SUDO $HOME/.local/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
+	$SUDO $HOME/bin/replace-file-segment /etc/hosts dotfiles-hosts-for-this-host "./$(hostname)" '#'
 fi
 cd - > /dev/null
 
