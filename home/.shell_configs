@@ -18,6 +18,7 @@ alias tf='tail -f'
 alias dm='sudo dmesg --follow'
 alias locate='locate -i'
 alias lg='lazygit'
+alias ra='ranger'
 
 # pacman alias
 alias yy='sudo pacman -S'
