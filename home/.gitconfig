@@ -14,4 +14,7 @@
 	autoStash = true
 
 [credential]
-	helper = store
+  helper = store
+
+[http "https://github.com"]
+  proxy=socks5://r-proxy:7890
