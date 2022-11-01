@@ -305,7 +305,7 @@ export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
 export RTT_CC=gcc
 export RTT_GCC_PATH=/usr/bin
 
-export TERM=xterm
+export TERM=xterm-256color
 export TERMINFO=/usr/share/terminfo
 export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"

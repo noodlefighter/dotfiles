@@ -17,4 +17,4 @@
   helper = store
 
 [http "https://github.com"]
-  proxy=socks5://r-proxy:7890
+  proxy=http://r-proxy:7890
