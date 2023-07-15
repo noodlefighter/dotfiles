@@ -105,6 +105,7 @@ ex ()
 			*.z)         uncompress $1;;
 			*.7z)        7z x $1      ;;
 			*.iso)       bsdtar -xf $1;;
+      *.rar)       unrar x $1   ;;
 			*)           echo "'$1' cannot be extracted via ex()" ;;
 		esac
 	else
@@ -126,6 +127,7 @@ pl ()
 			*.zip)       unzip -l $1  ;;
 			*.7z)        7z l $1      ;;
 			*.iso)       bsdtar -t $1 ;;
+      *.rar)       unrar l $1   ;;
 			*)           echo "'$1' cannot be listed via pl()" ;;
 		esac
 	else
@@ -185,7 +187,7 @@ comhex()
 
 # update system time from NTP server
 update-sys-time() {
-	sudo ntpdate -u ntp.api.bz
+	sudo ntpdate -u ntp.aliyun.com
 	sudo hwclock -w
 }
 
