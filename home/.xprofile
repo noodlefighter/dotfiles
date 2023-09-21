@@ -20,3 +20,8 @@ xbindkeys
 # set environment var
 source $HOME/.bashrc
 
+# 双屏环境
+if [[ $(hostname) == "r-lc" ]]; then
+  xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
+fi
+
