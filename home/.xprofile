@@ -24,4 +24,7 @@ source $HOME/.bashrc
 if [[ $(hostname) == "r-lc" ]]; then
   xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
 fi
+if [[ $(hostname) == "r-lh" ]]; then
+  xrandr --output DVI-0 --left-of HDMI-0 --auto
+fi
 
