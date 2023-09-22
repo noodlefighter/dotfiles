@@ -1,0 +1,3 @@
+# 允许鼠标滚动
+termcapinfo xterm* ti@:te@
+defscrollback 10000
