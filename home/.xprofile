@@ -23,8 +23,10 @@ source $HOME/.bashrc
 # 双屏环境
 if [[ $(hostname) == "r-lc" ]]; then
   xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
+  xrandr --output HDMI-A-0 --left-of DisplayPort-1 --auto
 fi
 if [[ $(hostname) == "r-lh" ]]; then
   xrandr --output DVI-0 --left-of HDMI-0 --auto
+  xrandr --output HDMI-0 --left-of DVI-0 --auto
 fi
 
