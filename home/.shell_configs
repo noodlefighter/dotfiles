@@ -53,11 +53,11 @@ alias ty='nh typora'
 alias mt='marktext'
 rdp() {
   RDP_HOST="/v:$1"
-  if [[ $# == 2 ]]; then
-    RDP_PASSWD="/p:$2"
-  fi
+  RDP_USER="/u:$2"
+  RDP_PASSWD="/p:$3"
+
   set -x
-  xfreerdp /u:r $RDP_PASSWD /w:1900 /h:1040 /audio-mode:0 $RDP_HOST
+  xfreerdp3 $RDP_USER $RDP_PASSWD /w:1900 /h:1040 /audio-mode:0 $RDP_HOST
   # audio-mode: 0 - redirect locally, 1 - leave on server, 2 - none
 }
 
@@ -318,6 +318,7 @@ export PATH=\
 :$HOME/.yarn/bin\
 :$HOME/.cargo/bin\
 :$HOME/.gem/ruby/2.7.0/bin\
+:$HOME/sdk/flutter/bin\
 :$PATH
 
 # git editor
