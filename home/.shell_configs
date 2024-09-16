@@ -291,12 +291,14 @@ setproxy() {
 	export ftp_proxy=$proxy
 	export all_proxy=$proxy
 	export no_proxy="localhost, 127.0.0.1, ::1"
+	export use_proxy=on
 }
 unsetproxy() {
 	unset http_proxy
 	unset https_proxy
 	unset ftp_proxy
 	unset no_proxy
+	unset use_proxy
 }
 
 
