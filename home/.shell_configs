@@ -36,6 +36,9 @@ alias co='chown'
 alias cm='chmod'
 alias md='mkdir -p'
 
+# list disk
+alias fl='sudo fdisk -l'
+
 # do not use rm
 alias rm="echo do not use rm, use trash-put(tp), or /bin/rm && return 1"
 alias rm-use='unalias rm'
@@ -294,9 +297,11 @@ setproxy() {
 	export use_proxy=on
 }
 unsetproxy() {
+  unset proxy
 	unset http_proxy
 	unset https_proxy
 	unset ftp_proxy
+	unset all_proxy
 	unset no_proxy
 	unset use_proxy
 }
