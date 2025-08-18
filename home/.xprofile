@@ -25,7 +25,12 @@ if [[ $(hostname) == "r-lc" ]]; then
   xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
   xrandr --output HDMI-A-0 --left-of DisplayPort-1 --auto
 fi
-  xrandr --output DVI-0 --left-of HDMI-0 --mode 1920x1080
-  xrandr --output HDMI-0 --right-of DVI-0 --mode 1920x1080
+if [[ $(hostname) == "r-lh" ]]; then
+  SCR_LEFT="DVI-D-0"
+  SCR_RIGHT="HDMI-0"
+  xrandr --output $SCR_LEFT --left-of $SCR_RIGHT --mode 1920x1080
+  xrandr --output $SCR_RIGHT --right-of $SCR_LEFT --mode 1920x1080
 fi
+
+$HOME/.config/polybar/launch.sh
 

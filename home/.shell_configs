@@ -324,6 +324,7 @@ $HOME/bin\
 :$HOME/.nimble/bin\
 :$HOME/.yarn/bin\
 :$HOME/.cargo/bin\
+:$HOME/.platformio/penv/bin\
 :$HOME/.gem/ruby/2.7.0/bin\
 :$HOME/sdk/flutter/bin\
 :$PATH
