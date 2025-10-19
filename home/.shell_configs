@@ -82,6 +82,9 @@ alias pwd2xclip="pwd |tr -d '\n' |clip"
 path2xclip() {
   print $PWD/$1 |tr -d '\n' |clip
 }
+alias pathshow() {
+  print $PWD/$1
+}
 
 
 # -------------------------------- archive file functions
@@ -271,7 +274,7 @@ quick-git-patch-init-ebi() {
   git add --all
   git commit -m init
 }
--quick-git-patch-execute() {
+quick-git-patch-execute() {
   git add --all
   git commit -m "my patch"
   git format-patch -1
@@ -283,6 +286,11 @@ quick-git-patch-execute-amend() {
   git format-patch -1
   mv 0001-my-patch.patch ../
 }
+show-disks() {
+  lsblk -o MOUNTPOINT,SIZE,FSSIZE,FSUSED,MODEL,SERIAL --tree --bytes \
+  | awk 'NR==1 || ($1 != "" && $1 != "[SWAP]" && $1 !~ /^\/dev/)'
+}
+
 
 # -------------------------------- user config
 
@@ -324,10 +332,13 @@ $HOME/bin\
 :$HOME/.nimble/bin\
 :$HOME/.yarn/bin\
 :$HOME/.cargo/bin\
-:$HOME/.platformio/penv/bin\
 :$HOME/.gem/ruby/2.7.0/bin\
 :$HOME/sdk/flutter/bin\
 :$PATH
+
+export_pio() {
+  export PATH=:$HOME/.platformio/penv/bin:$PATH
+}
 
 # git editor
 export GIT_EDITOR=vim

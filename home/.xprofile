@@ -11,7 +11,7 @@ fi
 
 # share mouse and keyboard
 if [[ $(hostname) != "r-lm"* ]]; then
-	barrier &
+	input-leap &
 fi
 
 # for Logitech M570
@@ -20,17 +20,4 @@ xbindkeys
 # set environment var
 source $HOME/.bashrc
 
-# 双屏环境
-if [[ $(hostname) == "r-lc" ]]; then
-  xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
-  xrandr --output HDMI-A-0 --left-of DisplayPort-1 --auto
-fi
-if [[ $(hostname) == "r-lh" ]]; then
-  SCR_LEFT="DVI-D-0"
-  SCR_RIGHT="HDMI-0"
-  xrandr --output $SCR_LEFT --left-of $SCR_RIGHT --mode 1920x1080
-  xrandr --output $SCR_RIGHT --right-of $SCR_LEFT --mode 1920x1080
-fi
-
-$HOME/.config/polybar/launch.sh
-
+$HOME/.on_monitor_change
