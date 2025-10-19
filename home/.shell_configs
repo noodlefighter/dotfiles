@@ -287,8 +287,8 @@ quick-git-patch-execute-amend() {
   mv 0001-my-patch.patch ../
 }
 show-disks() {
-  lsblk -o MOUNTPOINT,SIZE,FSSIZE,FSUSED,MODEL,SERIAL --tree --bytes \
-  | awk 'NR==1 || ($1 != "" && $1 != "[SWAP]" && $1 !~ /^\/dev/)'
+  lsblk -o NAME,MOUNTPOINT,SIZE,FSSIZE,FSUSED,MODEL,SERIAL --tree --bytes \
+    | awk 'NR==1 || ($2 != "" && $2 != "[SWAP]" && $2 !~ /^\/dev/)'
 }
 
 
