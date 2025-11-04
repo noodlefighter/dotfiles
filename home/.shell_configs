@@ -11,7 +11,7 @@ alias df='df -h'
 alias free='free -h'
 alias iostat='iostat -h'
 alias vi=vim
-alias cv="progress -w"
+#alias cv="progress -w"
 alias py="python"
 alias pc="proxychains"
 alias tf='tail -f'
@@ -39,9 +39,7 @@ alias md='mkdir -p'
 # list disk
 alias fl='sudo fdisk -l'
 
-# do not use rm
-alias rm="echo do not use rm, use trash-put(tp), or /bin/rm && return 1"
-alias rm-use='unalias rm'
+alias rm="safe-rm"
 alias tp='trash-put'
 
 if ! which safe-rm > /dev/null ; then
@@ -242,21 +240,21 @@ zrecv() {
 eval $(thefuck --alias)
 
 # conda
-load-conda()
-{
-	__conda_setup="$('/home/r/miniconda3/bin/conda' "shell.$(basename $SHELL)" 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-		eval "$__conda_setup"
-	else
-		if [ -f "/home/r/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/r/miniconda3/etc/profile.d/conda.sh"
-		else
-			export PATH="/home/r/miniconda3/bin:$PATH"
-		fi
-	fi
-	unset __conda_setup
-}
-alias activate="conda activate"
+#load-conda()
+#{
+#	__conda_setup="$('/home/r/miniconda3/bin/conda' "shell.$(basename $SHELL)" 'hook' 2> /dev/null)"
+#	if [ $? -eq 0 ]; then
+#		eval "$__conda_setup"
+#	else
+#		if [ -f "/home/r/miniconda3/etc/profile.d/conda.sh" ]; then
+#			. "/home/r/miniconda3/etc/profile.d/conda.sh"
+#		else
+#			export PATH="/home/r/miniconda3/bin:$PATH"
+#		fi
+#	fi
+#	unset __conda_setup
+#}
+# alias activate="conda activate"
 
 # add ignore zsh-git status to git repo
 git-disable-zsh() {
