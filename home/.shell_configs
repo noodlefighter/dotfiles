@@ -327,11 +327,13 @@ export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 
 export PATH=\
 $HOME/bin\
+:/usr/lib/jvm/java-25-openjdk/bin/\
 :$HOME/.nimble/bin\
 :$HOME/.yarn/bin\
 :$HOME/.cargo/bin\
 :$HOME/.gem/ruby/2.7.0/bin\
 :$HOME/sdk/flutter/bin\
+:$HOME/.pub-cache/bin\
 :$PATH
 
 export_pio() {

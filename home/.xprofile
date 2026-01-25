@@ -14,6 +14,9 @@ if [[ $(hostname) != "r-lm"* ]]; then
 	input-leap &
 fi
 
+# 共享剪贴板软件
+find ~/.local/bin -name "ClipShare*.AppImage" -type f -executable -exec {} \; &
+
 # for Logitech M570
 xbindkeys
 
