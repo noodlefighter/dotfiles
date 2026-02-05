@@ -42,6 +42,9 @@ alias fl='sudo fdisk -l'
 alias rm="safe-rm"
 alias tp='trash-put'
 
+# opencode
+alias opencode-chat="opencode --prompt 这是一个与代码开发工程无关的对话，你无需关注具体项目代码"
+
 if ! which safe-rm > /dev/null ; then
   echo "safe-rm not found, please install it ..."
 fi
