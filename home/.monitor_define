@@ -1,0 +1,16 @@
+
+# 双屏环境
+# 用xrandr命令查看屏幕名称
+if [[ $(hostname) == "r-lc" ]]; then
+  export LEFT="HDMI-A-0"
+  export RIGHT="DisplayPort-1"
+
+  xrandr --output $RIGHT --right-of $LEFT --auto
+  xrandr --output $LEFT --left-of $RIGHT --auto
+fi
+if [[ $(hostname) == "r-lh" ]]; then
+  export LEFT="DVI-D-0"
+  export RIGHT="HDMI-0"
+  xrandr --output $LEFT --left-of $RIGHT --mode 1920x1080
+  xrandr --output $RIGHT --right-of $LEFT --mode 1920x1080
+fi

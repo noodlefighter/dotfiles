@@ -9,18 +9,24 @@ if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
     export GTK_THEME='Adwaita:dark'
 fi
 
-# share mouse and keyboard
-if [[ $(hostname) != "r-lm"* ]]; then
-	input-leap &
-fi
-
-# 共享剪贴板软件
-find ~/.local/bin -name "ClipShare*.AppImage" -type f -executable -exec {} \; &
-
-# for Logitech M570
-xbindkeys
-
 # set environment var
 source $HOME/.bashrc
 
-$HOME/.on_monitor_change
+{
+  sleep 5
+
+  # 共享剪贴板软件
+  find ~/.local/bin -name "clipshare*.AppImage" -type f -executable -exec {} \; &
+
+  # 语音输入
+  /home/r/.local/bin/vocotype-flutter &
+
+  # rustdesk远程控制
+  /usr/bin/rustdesk &
+ 
+  # share mouse and keyboard
+  if [[ $(hostname) != "r-lm"* ]]; then
+    input-leap &
+  fi
+
+} &

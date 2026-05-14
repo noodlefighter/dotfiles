@@ -83,7 +83,7 @@ alias pwd2xclip="pwd |tr -d '\n' |clip"
 path2xclip() {
   print $PWD/$1 |tr -d '\n' |clip
 }
-alias pathshow() {
+pathshow() {
   print $PWD/$1
 }
 
@@ -350,3 +350,5 @@ export GIT_EDITOR=vim
 if [[ -e $HOME/.shell_private ]]; then
   source $HOME/.shell_private
 fi
+
+export UV_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
